@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>PAPOIS Gym</title>
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f6f4;--card:#fff;--tx:#17181a;--mu:#666c75;--ac:#ffb400;--act:#111;--bd:#e3e3df;--ok:#2b8a3e;--wa:#d9730d;--er:#c92a2a}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1012;--card:#1a1c1f;--tx:#f1f1ee;--mu:#9a9fa8;--bd:#2c2f34;--ok:#51cf66;--wa:#fcc419;--er:#ff6b6b}}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#1239c9;--card:#1745e8;--tx:#ffffff;--mu:#e0e7ff;--ac:#ffb400;--act:#111;--bd:#4565e8;--ok:#69f0ae;--wa:#ffd166;--er:#ff8a8a;color-scheme:dark}
 html{scroll-behavior:smooth;scroll-padding-top:70px}*{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 a{color:inherit}.w{max-width:1040px;margin:0 auto;padding:0 18px}.ov{overflow-x:auto}
@@ -48,6 +47,20 @@ th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--bd);white-sp
 .hero-dot{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.6);cursor:pointer}
 .hero-dot.active{background:var(--ac);transform:scale(1.25)}
 @media(max-width:600px){.hero{padding:58px 0 54px}.hero-carousel{margin-top:22px}.hero-carousel-control{width:36px;height:36px}.hero-slide-caption{left:15px;bottom:17px}.hero-dots{right:15px;bottom:19px}}
+
+/* Tema azul rey PAPOIS: contraste y campos legibles */
+html,body{background:#1239c9;color:#fff}
+body{background-color:#1239c9}
+.sec{background-color:#1239c9}
+.c{background:#1745e8;border-color:#4565e8;color:#fff}
+.sub,.note,.pl ul{color:#e0e7ff}
+input,select,textarea{background:#102fa3;color:#fff;border-color:#6680ed}
+input::placeholder,textarea::placeholder{color:#d4ddff;opacity:1}
+.tabs button{background:#1745e8;color:#fff;border-color:#6680ed}
+.tabs button.on{background:#ffb400;color:#111;border-color:#ffb400}
+.k div{background:#102fa3}
+.ph{background-color:#102fa3}
+footer{background:#071b68;color:#fff}
 </style></head><body><div id="root"></div>
 <script>
 var CONFIG={API_URL:'',CLAVE:'cambia-esta-clave'};
