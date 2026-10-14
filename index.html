@@ -32,7 +32,6 @@ th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--bd);white-sp
 .k{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.k div{background:var(--bg);border-radius:10px;padding:10px}.k b{display:block;font-size:22px}
 #msg{min-height:22px;font-weight:700;margin:6px 0}.mb{margin-bottom:14px}.note{font-size:13px;color:var(--mu)}
 .bn{background:#fff3cd;color:#664d03;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:12px}
-
 /* Carrusel principal de PAPOIS */
 .hero-carousel{position:relative;max-width:760px;margin:28px 0 20px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 45px rgba(0,0,0,.28);background:#222}
 .hero-slides{position:relative;height:clamp(210px,38vw,390px)}
@@ -48,7 +47,6 @@ th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--bd);white-sp
 .hero-dot{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.6);cursor:pointer}
 .hero-dot.active{background:var(--ac);transform:scale(1.25)}
 @media(max-width:600px){.hero{padding:58px 0 54px}.hero-carousel{margin-top:22px}.hero-carousel-control{width:36px;height:36px}.hero-slide-caption{left:15px;bottom:17px}.hero-dots{right:15px;bottom:19px}}
-
 </style></head><body><div id="root"></div>
 <script>
 var CONFIG={API_URL:'',CLAVE:'cambia-esta-clave'};
@@ -199,7 +197,6 @@ document.addEventListener('visibilitychange',function(){
  if(document.hidden){if(papoisCarouselTimer)clearInterval(papoisCarouselTimer)}
  else papoisStartCarousel();
 });
-
 cargar();
 papoisStartCarousel();
 </script></body></html>
