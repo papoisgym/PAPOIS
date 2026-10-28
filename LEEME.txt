@@ -1,0 +1,17 @@
+PAPOIS Gym - paquete inicial para XAMPP + MySQL
+
+1. Inicia Apache y MySQL en XAMPP.
+2. Copia la carpeta papois_xampp dentro de C:\xampp\htdocs\ y renómbrala a papois.
+3. Abre http://localhost/phpmyadmin
+4. En phpMyAdmin, selecciona la pestaña SQL y ejecuta el contenido de papois_gym.sql.
+5. Abre C:\xampp\htdocs\papois\conexion.php y verifica usuario/contraseña MySQL.
+   En una instalación local típica de XAMPP: usuario root, contraseña vacía.
+6. Abre http://localhost/papois/.
+
+IMPORTANTE:
+- index.html conserva el código y diseño original. Solo se cambió CONFIG.API_URL para apuntar a api.php.
+- Esta versión guarda el estado completo de la app como JSON en una fila de MySQL para minimizar cambios al frontend.
+- Si los datos de la app son importantes, haz una copia antes de probar. Los datos de ejemplo iniciales aparecerán cuando se abra por primera vez.
+- Si tu archivo original dependía de qrcode.js, jsQR.js, img/hero.jpg, las fotos y los videos, copia esos archivos/carpetas originales también a C:\xampp\htdocs\papois\ conservando los mismos nombres y rutas. No vienen incluidos en este paquete porque no estaban en el texto fuente adjunto.
+- La aplicación original guarda contraseñas en texto plano y autentica en el navegador. La clave compartida del API también está en el HTML. Esto sirve para pruebas locales, NO para exponerla a Internet ni para datos reales sensibles. Para publicar en Internet hay que rehacer autenticación, permisos y almacenamiento de contraseñas con hash en el servidor.
+- El pago continúa siendo simulado, igual que en el código original.
