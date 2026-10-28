@@ -4,7 +4,7 @@ header('Cache-Control: no-store');
 require_once __DIR__ . '/conexion.php';
 
 /* Debe coincidir con CONFIG.CLAVE en index.html. Cambia ambas antes de publicar. */
-$claveEsperada = 'PAPOIS-605-cambia-esta-clave-2026';
+$claveEsperada = 'HannyMR18';
 $entrada = json_decode(file_get_contents('php://input'), true);
 if (!is_array($entrada)) { http_response_code(400); echo json_encode(['error'=>'JSON inválido']); exit; }
 if (!isset($entrada['clave']) || !hash_equals($claveEsperada, (string)$entrada['clave'])) {
