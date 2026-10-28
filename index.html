@@ -121,7 +121,7 @@ input::placeholder,textarea::placeholder{color:#cbd8ff}
 @media(max-width:520px){.access-panel .access-grid{grid-template-columns:1fr}.access-panel .access-photo{width:90px;height:100px}}
 
 </style></head><body><div id="root"></div>
-<script src="qrcode.js"></script><script src="jsQR.js"></script><script src="JsBarcode.all.min.js"></script>
+<script src="qrcode.js"></script><script src="jsQR.js"></script>
 <script>
 var CONFIG={API_URL:'https://script.google.com/macros/s/AKfycby4fl5u-3XeDvvvMJK2PEaDslM4OtqS3MBEKjrPLAA8GXnwnZwJK1pPL7RGOGPZyxtH2w/exec',CLAVE:'PAPOIS-605-cambia-esta-clave-2026'};
 var CONFIG={API_URL:'https://script.google.com/macros/s/AKfycbxgMi0Kdq6RlOaaolBPxwf7Ccmih2-8Co_5gD5t--29KDHiznMAwc-FALe-VGGdnyCeuQ/exec',CLAVE:'papois-oct2026-k7'};
@@ -250,58 +250,7 @@ function procesarCredencial(cod){var raw=String(cod==null?'':cod).trim(),now=Dat
 function registrarEntrada(cod){return procesarCredencial(cod).mensaje}
 var entrada=A(function(f){var r=procesarCredencial(f.cod.value);M=r.mensaje;f.cod.value='';});
 var QRV=null,camOn=false,camS=null,camT=null,camLast='',camWait=0;
-function qrHtml(s) {
-  if (!window.qrcode) {
-    return '<p class="note">No se cargó qrcode.js</p>';
-  }
-
-  var q = qrcode(0, 'M');
-  q.addData('PAPOIS|' + s.id);
-  q.make();
-  var u = q.createDataURL(8, 4);
-
-  var barras = '';
-
-  if (window.JsBarcode) {
-    var canvas = document.createElement('canvas');
-
-    JsBarcode(canvas, s.id, {
-      format: 'CODE128',
-      displayValue: true,
-      width: 2,
-      height: 70,
-      margin: 10
-    });
-
-    var b = canvas.toDataURL('image/png');
-
-    barras =
-      '<h3>Código de barras</h3>' +
-      '<img src="' + b + '" alt="Código de barras de ' +
-      esc(s.id) +
-      '" style="width:100%;max-width:350px;background:#fff">' +
-      '<p><a class="s" download="barras-' +
-      esc(s.id) +
-      '.png" href="' + b + '">Guardar código de barras</a></p>';
-  } else {
-    barras =
-      '<p class="note">No se cargó JsBarcode.all.min.js</p>';
-  }
-
-  return (
-    '<h3>Credencial PAPOIS Gym</h3>' +
-    '<p><b>' + esc(s.nombre) + '</b><br>' +
-    esc(s.id) + '</p>' +
-    '<h3>Código QR</h3>' +
-    '<img src="' + u + '" alt="QR del socio" ' +
-    'style="width:240px;max-width:100%;background:#fff;' +
-    'border-radius:10px;image-rendering:pixelated">' +
-    '<p><a class="s" download="qr-' + esc(s.id) +
-    '.gif" href="' + u + '">Guardar QR</a></p>' +
-    barras +
-    '<p class="note">Presenta tu credencial en recepción.</p>'
-  );
-}
+function qrHtml(s){if(!window.qrcode)return'<p class="note">No se cargó el archivo qrcode.js</p>';var q=qrcode(0,'M');q.addData('PAPOIS|'+s.id);q.make();var u=q.createDataURL(8,4);return'<h3>Credencial QR</h3><img src="'+u+'" alt="QR de '+esc(s.id)+'" style="width:240px;max-width:100%;background:#fff;border-radius:10px;image-rendering:pixelated"><p><b>'+esc(s.nombre)+'</b><br>'+esc(s.id)+'</p><p class="note">Se presenta en recepción para registrar la entrada.</p><a class="s" download="qr-'+esc(s.id)+'.gif" href="'+u+'">Guardar imagen</a>'}
 function asistTabla(){return tbl(['Fecha','Hora','Código','Socio','Resultado','Motivo'],S.asist.slice().reverse().slice(0,100).map(function(a){var s=sid(a.socio),ok=a.resultado==='AUTORIZADO';return'<tr><td>'+esc(a.fecha||'')+'</td><td>'+esc(a.hora||'')+'</td><td>'+esc(a.codigo||'—')+'</td><td>'+esc(s?s.nombre:(a.socio||'No registrado'))+'</td><td class="t '+(ok?'ok':'er')+'">'+esc(a.resultado||(a.socio?'REGISTRADO':'LEGACY'))+'</td><td>'+esc(a.motivo||'Registro previo')+'</td></tr>'}))}
 function camMsg(t,ok){var e=$('scanmsg');if(e){e.textContent=t;e.className=ok?'ok':'er'}}
 function stopCam(){clearInterval(camT);if(camS)camS.getTracks().forEach(function(t){t.stop()});camS=null;camOn=false;detectorBarras=null;scanEnCurso=false;var b=$('camBtn'),x=$('camBox');if(b)b.textContent='Escanear código con cámara';if(x)x.style.display='none'}
