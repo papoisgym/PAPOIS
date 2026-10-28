@@ -5,8 +5,7 @@
 $host = 'sql306.infinityfree.com';
 $dbName = 'if0_43289772_papoisgym';
 $dbUser = 'if0_43289772';
-$dbPass = 'ESCRIBE_AQUI_TU_CONTRASEÑA_MYSQL';
-$charset = 'utf8mb4';
+$dbPass = 'HannyMR18';$charset = 'utf8mb4';
 
 $dsn = "mysql:host={$host};dbname={$dbName};charset={$charset}";
 
