@@ -111,11 +111,8 @@ input::placeholder,textarea::placeholder{color:#cbd8ff}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js" defer></script>
 <script>
-var CONFIG = {
-  API_URL: 'https://papoisgym.great-site.net/api.php',
-  CLAVE: 'PAPOIS-605-cambia-esta-clave-2026'
-};
-  var PL={'Básico':{p:399,t:['Acceso al gimnasio','Horario 6:00 a 22:00','Reserva de salones']},'Plus':{p:599,t:['Todo lo del Básico','Clases grupales ilimitadas','Rutina personalizada','Expediente en línea']},'Premium':{p:799,t:['Todo lo del Plus','Dieta personalizada','Reserva prioritaria de equipo','Acceso al área Spa','1 invitado al mes']}};
+var CONFIG={API_URL:'api.php',CLAVE:'PAPOIS-605-cambia-esta-clave-2026'};
+var PL={'Básico':{p:399,t:['Acceso al gimnasio','Horario 6:00 a 22:00','Reserva de salones']},'Plus':{p:599,t:['Todo lo del Básico','Clases grupales ilimitadas','Rutina personalizada','Expediente en línea']},'Premium':{p:799,t:['Todo lo del Plus','Dieta personalizada','Reserva prioritaria de equipo','Acceso al área Spa','1 invitado al mes']}};
 var SAL=['Salón de clases grupales','Área funcional (Box/HIIT)','Salón de ciclismo','Área ABS'],HRS=[];for(var h=6;h<22;h++)HRS.push((h<10?'0':'')+h+':00');
 var K='papois_web_v1',S=null,ses=null,tab='',M='',ND=5,Q='',estado='local',reg=false;
 var $=function(i){return document.getElementById(i)};
@@ -142,7 +139,7 @@ var tm;function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}i
 setInterval(function(){if(!CONFIG.API_URL||estado!='nube'||camOn||tm||/INPUT|SELECT|TEXTAREA/.test((document.activeElement||{}).tagName||''))return;post({accion:'load'}).then(function(j){if(!j||!j.socios)return;var x=JSON.stringify(j);if(x!==ult){ult=x;S=j;ensure();norm();render()}}).catch(function(){})},30000);
 function ir(id){if(location.hash&&location.hash!='#/'){location.hash='#/';setTimeout(function(){var e=$(id);if(e)e.scrollIntoView()},60)}else{var e=$(id);if(e)e.scrollIntoView()}}
 function nav(){return'<div class="top"><div class="w"><span class="logo" onclick="location.hash=\'#/\'">PAPOIS</span><button onclick="ir(\'quienes\')">Nosotros</button><button onclick="ir(\'inst\')">Instalaciones</button><button onclick="ir(\'planes\')">Planes</button><button onclick="ir(\'contacto\')">Contacto</button><a href="#/socio" class="btn">Acceso socios</a><a href="#/admin">Administración</a></div></div>'}
-function foot(){return'<footer><div class="w">PAPOIS Gym · Proyecto escolar, datos e imágenes ilustrativos · '+(estado=='nube'?'Conectado a MySQL':estado=='error'?'Sin conexión con la base de datos: modo local':'Modo demostración: datos solo en este navegador')+'</div></footer>'}
+function foot(){return'<footer><div class="w">PAPOIS Gym · Proyecto escolar, datos e imágenes ilustrativos · '+(estado=='nube'?'Datos en Google Sheets':estado=='error'?'Sin conexión con la base de datos: modo local':'Modo demostración: datos solo en este navegador')+'</div></footer>'}
 function home(){var pl=Object.keys(PL).map(function(k,i){return'<div class="c pl'+(i==1?' pop':'')+'">'+(i==1?'<span class="tag">MÁS POPULAR</span>':'')+'<h3>'+k+'</h3><div class="pr">$'+PL[k].p+'<small style="font-size:14px;font-weight:400">/mes</small></div><ul>'+PL[k].t.map(function(t){return'<li>'+t+'</li>'}).join('')+'</ul><a class="btn" href="#/socio" onclick="reg=true;PS=\''+k+'\'">Inscríbete</a></div>'}).join('');
  var GR=[
  ['Áreas principales de entrenamiento',[
